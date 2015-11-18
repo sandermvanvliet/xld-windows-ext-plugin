@@ -114,8 +114,20 @@ FOR A PARTICULAR PURPOSE. THIS CODE AND INFORMATION ARE NOT SUPPORTED BY XEBIALA
 
         <property name="recoveryResetTimeout" kind="int" hidden="false" default="86400" description="Number of seconds before the failure count is reset" />
 
-        <property name="recoveryFirst" kind="string" hidden="false" description="Type of action to take on first failure" />
+        <property name="recoveryFirst" kind="string" hidden="false" description="Type of action to take on first failure">
+          <rule type="regex" pattern="run|restart|reboot" message="Action must be one of the following: run, restart, reboot" />
+        </property>
         <property name="recoveryFirstTimeout" kind="int" hidden="false" description="Wait this many seconds before executing recovery action" />
+
+        <property name="recoverySecond" kind="string" hidden="false" description="Type of action to take on second failure">
+          <rule type="regex" pattern="run|restart|reboot" message="Action must be one of the following: run, restart, reboot" />
+        </property>
+        <property name="recoverySecondTimeout" kind="int" hidden="false" description="Wait this many seconds before executing recovery action" />
+
+        <property name="recoveryThird" kind="string" hidden="false" description="Type of action to take on third failure">
+          <rule type="regex" pattern="run|restart|reboot" message="Action must be one of the following: run, restart, reboot" />
+        </property>
+        <property name="recoveryThirdTimeout" kind="int" hidden="false" description="Wait this many seconds before executing recovery action" />
 
         <property name="username" required="false"
                   category="Log On"

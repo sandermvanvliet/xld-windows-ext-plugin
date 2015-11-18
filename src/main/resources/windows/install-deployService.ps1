@@ -45,5 +45,7 @@ if( $($deployed.username) ) {
 }
 
 if( $deployed.recoveryFirst -ne "" ) {
-    sc.exe . failure $serviceName reset= $deployed.recoveryResetTimeout actions= $deployed.recorveryFirst/$deployed.recoveryFirstTimeout
+    $recoveryString = [string]::Format("{0}/{1}/{2}/{3}/{4}/{5}", $deployed.recoveryFirst, $deployed.recoveryFirstTImeout, $deployed.recoverySecond, $deployed.recoverySecondTimeout, $deployed.recoveryThird, $deployed.recoveryThirdTimout)
+
+    sc.exe . failure $serviceName reset= $deployed.recoveryResetTimeout actions= $recoveryString
 }
