@@ -44,3 +44,6 @@ if( $($deployed.username) ) {
     #New-Service -Name $serviceName -BinaryPathName $deployed.binaryPathName -DependsOn $deployed.dependsOn -Description $description -DisplayName $displayName -StartupType $deployed.startupType | Out-Null
 }
 
+if( $deployed.recoveryFirst -ne "" ) {
+    sc.exe . failure $serviceName reset= $deployed.recoveryResetTimeout actions= $deployed.recorveryFirst/$deployed.recoveryFirstTimeout
+}

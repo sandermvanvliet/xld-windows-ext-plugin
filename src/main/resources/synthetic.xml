@@ -112,6 +112,11 @@ FOR A PARTICULAR PURPOSE. THIS CODE AND INFORMATION ARE NOT SUPPORTED BY XEBIALA
         <property name="targetPathShared" kind="boolean" default="true" hidden="false" />
         <property name="createTargetPath" kind="boolean" default="true" hidden="false" />
 
+        <property name="recoveryResetTimeout" kind="int" hidden="false" default="86400" description="Number of seconds before the failure count is reset" />
+
+        <property name="recoveryFirst" kind="string" hidden="false" description="Type of action to take on first failure" />
+        <property name="recoveryFirstTimeout" kind="int" hidden="false" description="Wait this many seconds before executing recovery action" />
+
         <property name="username" required="false"
                   category="Log On"
                   description="Username of the account this service should log on as" />
